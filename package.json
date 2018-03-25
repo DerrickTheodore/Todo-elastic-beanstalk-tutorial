@@ -4,10 +4,12 @@
   "description": "Expanding on TodoMVC to move it to production",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha src/server/test",
+    "test": "mocha src/server/test && NODE_ENV=test",
     "start": "node bin/server.js",
     "prestart": "sequelize db:migrate",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "dev": "grunt",
+    "prod": "NODE_ENV=production && grunt collect_static && npm start"
   },
   "repository": {
     "type": "git",
